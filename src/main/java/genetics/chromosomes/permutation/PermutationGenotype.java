@@ -1,7 +1,6 @@
 package genetics.chromosomes.permutation;
 
 import genetics.chromosomes.RawGenotype;
-import genetics.chromosomes.floatingpoint.FloatingPointGenotype;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

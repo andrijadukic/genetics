@@ -5,7 +5,6 @@ import rand.SourceOfRandomness;
 import java.security.InvalidParameterException;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 public class RouletteWheelContainer<E> extends ProbabilitySelector {
 
@@ -13,8 +12,8 @@ public class RouletteWheelContainer<E> extends ProbabilitySelector {
     private final double[] rouletteWheel;
 
     public RouletteWheelContainer(List<DesirabilityPair<E>> operatorDesirabilityPairs) {
-        var sortedPairs = operatorDesirabilityPairs.stream().sorted().collect(Collectors.toUnmodifiableList());
-        elements = sortedPairs.stream().map(DesirabilityPair::element).collect(Collectors.toUnmodifiableList());
+        var sortedPairs = operatorDesirabilityPairs.stream().sorted().toList();
+        elements = sortedPairs.stream().map(DesirabilityPair::element).toList();
         double[] desirability = sortedPairs.stream().mapToDouble(DesirabilityPair::desirability).toArray();
 
         if (!isValid(desirability)) throw new InvalidParameterException();

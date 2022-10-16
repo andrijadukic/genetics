@@ -13,5 +13,4 @@ public final class Children extends Pair<Chromosome, Optional<Chromosome>> {
     public Children(Chromosome first, Chromosome second) {
         super(first, Optional.of(second));
     }
-
 }
